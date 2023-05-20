@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
+
+
+class IndexView(TemplateView):
+    template_name = "index.html"
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", IndexView.as_view(), name="index")
 ]
